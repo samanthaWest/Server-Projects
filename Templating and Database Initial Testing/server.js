@@ -1,4 +1,4 @@
-/*********************************************************************************
+﻿/*********************************************************************************
 *  WEB322 – Assignment 04
 *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
 *  assignment has been copied manually or electronically from any other source (including web sites) or 
@@ -17,8 +17,8 @@ var ds = require("./data-service"); // require module
 const Sequelize = require('sequelize');
 
 // set up sequelize to point to our postgres database
-var sequelize = new Sequelize('dc2rgm01n5k6fb', 'fiylpqjpvlecka', '8cab78857a40bc9cd53a6b6b575cde8df753b69ecbbf260344fc275779031482', {
-    host: 'ec2-204-236-239-225.compute-1.amazonaws.com',
+var sequelize = new Sequelize('hostname', 'username', 'password', {
+    host: 'host url',
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
