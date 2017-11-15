@@ -1,0 +1,33 @@
+  <div class="row">
+    <div class="col-md-12">
+        <h1>{{title}}<h1>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Department Number</th>
+                    <th>Department Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{#each data}}
+            {{departmentId}}<br />
+        {{/each}}</td>
+        <td>{{#each data}}
+            {{departmentName}}<br />
+        {{/each}}</td>
+                </tr>
+            </tbody>
+            </table>
+            </table>
+
+        </div>
+    </div>
+</div>
+

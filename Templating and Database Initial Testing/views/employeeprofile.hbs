@@ -1,0 +1,34 @@
+   <div class="container">
+	   <div class="row">				
+				<section class="main col-md-12">
+					<article>	
+					<h1>{{title}} 
+						{{#each data}} {{employeeNum}} {{/each}} ,
+						{{#strong}}{{#each data}} {{last_name}} {{/each}} {{/strong}}
+					</h1>
+					<table >
+					<tr>
+						<td>
+					<img src="./blank-person.jpg" alt="profile-image" height="280" width="250">
+					</td>
+						<td>
+						<img src="./icons/email.png" alt="profile-image" height="25" width="25">
+						{{#each data}}<a href="mailto: {{email}}" >{{email}}</a>{{/each}}
+						<br><br>
+						<p>Fullname: {{#each data}}
+            <a href="/employees/{{employeeNum}}" >{{firstName}} {{last_name}}</a>{{/each}}<br>
+						Addresse: {{#each data}}{{addressStreet}} {{addressCity}} {{addressPostal}}{{/each}}	<br>
+						Manager: {{#each data}}<a href="/employee/manager/{{employeeManagerNum}}"> {{employeeManagerNum}}</a>{{/each}} <br>
+						Status:  {{#each data}}{{status}}<br />{{/each}}
+						Department: {{#each data}}<a href="/employees/department/{{department}}" > {{department}}</a> <br />{{/each}}
+						Hire Date: {{#each data}}{{hireDate}} <br />{{/each}}
+						</p>
+						<br>			
+							</td>
+					</tr>
+					</table>
+					{{> disclaimer}}
+					  <br> <br>
+					</article>
+				</section>
+		</div>

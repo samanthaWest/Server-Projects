@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>{{title}}<a href="/employees/add" class="btn btn-success pull-right" style="margin-top:5px;">Add New Employee</a></h1>
+        <h1>
+            <form method="get" action="/search">
+            <input type="text" id="searchbar" name="search" placeholder="Search by employee name or id..." value="">
+            </form>
+            </h1>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive"></div>
+        <table class="table" >
+        <thead>
+            <tbody>
+            <tr>
+                <th>Employee Num</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Addresse</th>
+                <th>Manager #ID</th>
+                <th>Status</th>
+                <th>Department</th>
+                <th>Hired On</th>
+            </tr>
+        </thead>
+        
+            <tr>
+        <td>
+        {{#each data}}
+            <a href="/employees/{{employeeNum}}" >{{employeeNum}}</a> <br />
+        {{/each}}
+        </td>
+        <td>
+        {{#each data}}
+            <a href="/employees/{{employeeNum}}" >{{firstName}} {{last_name}}</a> <br />
+        {{/each}}
+        </td>
+        <td>
+        {{#each data}}
+            <a href="mailto: {{email}}" >{{email}}</a> <br />
+        {{/each}}
+        </td>  
+       <td>
+        {{#each data}}
+            {{addressStreet}} {{addressCity}} {{addressPostal}}<br />
+        {{/each}}
+        </td> 
+        <td>
+        {{#each data}}
+           <a href="/employee/manager/{{employeeManagerNum}}"> {{employeeManagerNum}}</a> <br />
+        {{/each}}
+        </td>  
+         <td>
+        {{#each data}}
+           {{status}}<br />
+        {{/each}}
+        </td> 
+        <td>
+        {{#each data}}
+           <a href="/employees/department/{{department}}" > {{department}}</a> <br />
+        {{/each}}
+        </td> 
+         <td>
+        {{#each data}}
+          {{hireDate}} <br />
+        {{/each}}
+        </td> 
+        </tr>
+       </tbody>
+       </table>
+    </div>
+</div>
