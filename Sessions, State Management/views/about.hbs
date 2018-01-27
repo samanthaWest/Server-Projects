@@ -1,0 +1,137 @@
+   <div class="container">
+	   <div class="row">
+				<section class="main col-md-12">
+					<article>
+					<h2>Samantha West - the developer</h2>
+					<p>Hello, </p><br>
+					<p>I'm a 23 year old aspiring programmer from Pickering,Ontatio in My
+						second year at Seneca College. When I've graduate I would like  to use
+						my skills learned inside and outside Seneca College to attain a position
+						where I can continue developing my programming skills as well as used them
+						to solve real world problems. 
+					</p>	
+					</article>
+				</section>
+		</div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Leave a Comment</h3>
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12">
+				
+					<form method="post" action="/about/addComment"> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="authorName" placeHolder="Name" name="authorName" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="authorEmail" placeHolder="Email" name="authorEmail" type="email"  />
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="subject" placeHolder="Subject" name="subject" type="text" />
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="commentText" placeHolder="Comment" name="commentText" type="textarea" />
+                        </div>
+                    </div>
+                </div>
+					 <input type="submit" class="btn btn-primary pull-right"  value="Comment" />
+					
+					</form>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if data}}
+<div class="row">
+    <div class="col-md-12">
+        <h3>All Comments</h3>
+        <hr />
+    </div>
+</div>
+{{/if}}
+
+{{#each data}}
+<div class="row">
+    <div class="col-md-12">
+		{{subject}}
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12">
+                    {{commentText}}<br /><br />
+					Posted on: {{postedDate}} by <a href="mailto: {{email}}"> {{authorName}} </a>
+                </div>
+            </div>
+            {{#each replies}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well">
+						{{commentText}} <br>
+						Posted on: {{repliedDate}} by <a href="mailto: {{email}}"> {{authorName}} </a>
+					</div>
+                </div>
+            </div>
+            {{/each}}
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-sm pull-right" data-toggle="collapse" data-target="#reply-{{_id}}" aria-expanded="false">Reply</button>
+                </div>
+            </div>
+        </div>
+            
+        <div class="collapse" id="reply-{{_id}}">
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
+                  
+		        <form method="post" action="/about/addReply"> 
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="authorName" placeHolder="Name" name="authorName" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="authorEmail" placeHolder="Email" name="authorEmail" type="email"  />
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" id="commentText" placeHolder="Comment" name="commentText" type="textarea" />
+                        </div>
+                    </div>
+                </div>
+					 <input id="_id" value="{{_id}}" name="_id" type="hidden" />
+					 <input type="submit" class="btn btn-primary pull-right"  value="Reply" />
+					</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
